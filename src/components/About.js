@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = ({children}) => {
+const About = ({}) => {
     return(
         <div>
             Lorem ipsum
