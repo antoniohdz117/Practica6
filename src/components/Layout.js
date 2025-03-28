@@ -1,32 +1,14 @@
-import React from 'react';
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Container} from "@mui/material";
+import Navbar from "./Navbar";
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100vh',
-                backgroundColor: 'lightgray',
-                padding: 3,
-                borderRadius: 2,
-            }}
-        >
-            <Container className="container">
-                {children}
-            </Container>
-            <Box className="footer" sx={{ width: '100%', textAlign: 'center', padding: 2, backgroundColor: '#333', color: 'white', marginTop: 'auto' }}>
-                <Typography variant="body2">
-                    © {new Date().getFullYear()} Mi Aplicación. Todos los derechos reservados.
-                </Typography>
-            </Box>
-
-
+        <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+            <Navbar/>
+            <Container className={"container"}> {children}</Container>
+            <Box className={"footer"}>RJV PRACTICA  6</Box>
         </Box>
     );
-};
+}
 
 export default Layout;

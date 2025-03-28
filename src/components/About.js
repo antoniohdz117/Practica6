@@ -1,11 +1,12 @@
-import React from 'react';
+import PokemonCard from "./PokemonCard";
+import Pokedex from "./Pokedex";
 
-const About = ({}) => {
+const About = () =>{
     return(
         <div>
-            Lorem ipsum
+            <Pokedex/>
         </div>
-    );
-};
+    )
+}
 
 export default About;

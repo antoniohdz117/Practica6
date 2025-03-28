@@ -1,36 +1,40 @@
-import React, { useState } from "react";
-import { IconButton, Drawer, List, ListItem, Box } from "@mui/material";
+import {Fragment, useState} from "react";
+import {Box, Drawer, IconButton, List, ListItem, ListItemText} from "@mui/material";
+import {Link} from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from "react-router-dom";
 
-const Sidebar = () => {
-    const [drawerOpen, setDrawerOpen] =useState(false)
-    const toggleDrawer = (open) => (event)=> {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+const Sidebar = ()=> {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'shift')) {
             return;
         }
-        setDrawerOpen(open);
-    }
+        setDrawerOpen(open)
+    };
 
     return (
-        <>
-            <IconButton edge="start" onClick={toggleDrawer(true)}>
-                <MenuIcon />
+        <Fragment>
+            <IconButton onClick={toggleDrawer(true)}>
+                <MenuIcon/>
             </IconButton>
 
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-                <Box className="sidebar" sx={{ width: 250 }}>
+                <Box ClassName="sidebar">
                     <List>
                         <ListItem button component={Link} to="/">
-                            Inicio
+                            <ListItemText primary="Inicio"/>
+                        </ListItem>
+                        <ListItem button component={Link} to="/about">
+                            <ListItemText primary="Acerca de"/>
+                        </ListItem>
+                        <ListItem button component={Link} to="/contact">
+                            <ListItemText primary="Contacto"/>
                         </ListItem>
                     </List>
                 </Box>
             </Drawer>
-        </>
+        </Fragment>
     );
-};
-
+}
 export default Sidebar;
-
-
